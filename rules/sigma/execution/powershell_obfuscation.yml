@@ -1,0 +1,27 @@
+title: PowerShell Obfuscation via EncodedCommand
+id: 8956b62-9d8f-43e5-932b-363351234568
+status: stable
+description: Detects the use of the EncodedCommand parameter in PowerShell, which is often used to hide malicious scripts.
+author: Ph0e-Nyx
+date: 2025-12-16
+references:
+    - https://attack.mitre.org/techniques/T1059/001/
+tags:
+    - attack.execution
+    - attack.t1059.001
+logsource:
+    category: process_creation
+    product: windows
+detection:
+    selection:
+        Image|endswith: '\powershell.exe'
+        CommandLine|contains:
+            - ' -enc '
+            - ' -EncodedCommand '
+            - ' -e '
+            - ' -en '
+    condition: selection
+falsepositives:
+    - Legitimate administrative scripts using base64 encoding
+    - RMM tools (Remote Monitoring and Management)
+level: medium

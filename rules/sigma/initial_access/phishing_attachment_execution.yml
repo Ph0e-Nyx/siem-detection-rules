@@ -1,0 +1,35 @@
+title: Suspicious Phishing Attachment Execution
+id: 48956b62-9d8f-43e5-932b-363351234567
+status: experimental
+description: Detects the execution of suspicious file types (exe, scr, vbs, js) often used in phishing attachments from Outlook or browser temporary folders.
+author: Ph0e-Nyx
+date: 2025-12-16
+references:
+    - https://attack.mitre.org/techniques/T1566/001/
+tags:
+    - attack.initial_access
+    - attack.t1566.001
+logsource:
+    category: process_creation
+    product: windows
+detection:
+    selection_parent:
+        ParentImage|endswith:
+            - '\outlook.exe'
+            - '\chrome.exe'
+            - '\firefox.exe'
+            - '\msedge.exe'
+    selection_child:
+        Image|endswith:
+            - '.exe'
+            - '.scr'
+            - '.vbs'
+            - '.js'
+            - '.bat'
+            - '.cmd'
+            - '.ps1'
+    condition: selection_parent and selection_child
+falsepositives:
+    - Legitimate software installers downloaded by users (requires tuning)
+    - Corporate update executables launched from browser context
+level: high

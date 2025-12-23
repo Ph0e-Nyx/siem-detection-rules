@@ -1,0 +1,24 @@
+title: Suspicious Process Creation in Temp Folders
+id: 9956b62-9d8f-43e5-932b-363351234569
+status: test
+description: Detects the creation and execution of processes from temporary folders (AppData\Local\Temp, Windows\Temp), a common behavior of malware droppers.
+author: Ph0e-Nyx
+date: 2025-12-16
+references:
+    - https://attack.mitre.org/techniques/T1059/
+tags:
+    - attack.execution
+    - attack.defense_evasion
+logsource:
+    category: process_creation
+    product: windows
+detection:
+    selection:
+        Image|contains:
+            - '\AppData\Local\Temp\'
+            - '\Windows\Temp\'
+    condition: selection
+falsepositives:
+    - Software installers/updaters
+    - Temporary administrative tools
+level: medium

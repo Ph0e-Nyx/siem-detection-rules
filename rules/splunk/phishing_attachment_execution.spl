@@ -1,0 +1,4 @@
+index=windows source="WinEventLog:Security" EventCode=4688 
+(ParentProcessName="*\\outlook.exe" OR ParentProcessName="*\\chrome.exe" OR ParentProcessName="*\\firefox.exe" OR ParentProcessName="*\\msedge.exe")
+(ProcessName="*.exe" OR ProcessName="*.scr" OR ProcessName="*.vbs" OR ProcessName="*.js" OR ProcessName="*.bat" OR ProcessName="*.cmd" OR ProcessName="*.ps1")
+| stats count by Computer, User, ParentProcessName, ProcessName, CommandLine

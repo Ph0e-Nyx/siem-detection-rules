@@ -1,0 +1,3 @@
+SELECT * FROM events 
+WHERE (ParentImage ILIKE '%outlook.exe' OR ParentImage ILIKE '%chrome.exe' OR ParentImage ILIKE '%firefox.exe' OR ParentImage ILIKE '%msedge.exe') 
+AND (Image ILIKE '%.exe' OR Image ILIKE '%.scr' OR Image ILIKE '%.vbs' OR Image ILIKE '%.js' OR Image ILIKE '%.bat' OR Image ILIKE '%.cmd' OR Image ILIKE '%.ps1')

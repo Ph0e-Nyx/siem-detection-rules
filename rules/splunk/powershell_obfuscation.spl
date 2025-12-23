@@ -1,0 +1,3 @@
+index=windows source="WinEventLog:Security" EventCode=4688 ProcessName="*\\powershell.exe" 
+(CommandLine="* -enc *" OR CommandLine="* -EncodedCommand *" OR CommandLine="* -e *" OR CommandLine="* -en *")
+| stats count by Computer, User, CommandLine

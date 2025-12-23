@@ -1,0 +1,3 @@
+process where event.type == "start" and
+  process.parent.name in ("outlook.exe", "chrome.exe", "firefox.exe", "msedge.exe") and
+  process.name : ("*.exe", "*.scr", "*.vbs", "*.js", "*.bat", "*.cmd", "*.ps1")

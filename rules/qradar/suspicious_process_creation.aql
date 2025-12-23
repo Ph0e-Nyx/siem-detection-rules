@@ -1,0 +1,2 @@
+SELECT * FROM events 
+WHERE Image ILIKE '%\AppData\Local\Temp\%' OR Image ILIKE '%\Windows\Temp\%'
