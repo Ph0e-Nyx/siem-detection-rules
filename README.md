@@ -1,109 +1,90 @@
-# 🛡️ Custom SIEM Detection Rules
-
 <div align="center">
 
-![SIEM Banner](assets/banner.png)
+  <br>
 
-<!-- Animated Header -->
-<h1>
-  <img src="https://readme-typing-svg.herokuapp.com?font=Orbitron&size=30&duration=3000&pause=1000&color=0EA5E9&center=true&vCenter=true&width=600&height=60&lines=Advanced+Threat+Detection;Multi-Platform+SIEM+Rules;MITRE+ATT%26CK+Mapped;Blue+Team+Defense" alt="Typing SVG" />
-</h1>
+  <h1><img src="https://img.icons8.com/ios/256/FFFFFF/shield.png" width="35" valign="middle">&nbsp; REGLAS DE DETECCIÓN SIEM</h1>
 
-<!-- Badges -->
-![Status](https://img.shields.io/badge/Status-Active-success?style=for-the-badge&logo=activity&logoColor=white)
-![Rules](https://img.shields.io/badge/Rules-25+-0EA5E9?style=for-the-badge&logo=files&logoColor=white)
-![License](https://img.shields.io/badge/License-MIT-6366F1?style=for-the-badge&logo=open-source-initiative&logoColor=white)
-![Platform](https://img.shields.io/badge/Platform-Splunk%20%7C%20Elastic%20%7C%20QRadar-3B82F6?style=for-the-badge&logo=server&logoColor=white)
+  <img src="https://img.shields.io/badge/Estado-Activo-000000?style=for-the-badge&logo=activity&logoColor=white">
+  <img src="https://img.shields.io/badge/Reglas-25+-000000?style=for-the-badge&logo=files&logoColor=white">
+  <img src="https://img.shields.io/badge/Licencia-MIT-000000?style=for-the-badge&logo=opensourceinitiative&logoColor=white">
+  <img src="https://img.shields.io/badge/Plataforma-Splunk_|_Elastic_|_QRadar-000000?style=for-the-badge&logo=server&logoColor=white">
 
-<br/>
+  <br><br>
 
-**A professional collection of high-fidelity detection rules for modern SOC environments.**
-<br/>
-*Curated by [Ph0e-Nyx](https://github.com/Ph0e-Nyx)*
+  > **Una colección profesional de reglas de detección de alta fidelidad para entornos SOC modernos.**<br>
+  > *Mantenido por [Ph0e-Nyx](https://github.com/Ph0e-Nyx)*
 
-[Explore Rules](#-detection-rules) • [Implementation](#-implementation) • [Contributing](#-contributing)
+  <br>
+
+  <a href="#reglas-de-detección"><img src="https://img.shields.io/badge/Explorar_Reglas-000000?style=for-the-badge&logo=search&logoColor=white"></a>
+  <a href="#implementación"><img src="https://img.shields.io/badge/Implementación-000000?style=for-the-badge&logo=geeksforgeeks&logoColor=white"></a>
+  <a href="https://github.com/Ph0e-Nyx/siem-detection-rules/pulls"><img src="https://img.shields.io/badge/Contribuir-000000?style=for-the-badge&logo=github&logoColor=white"></a>
 
 </div>
 
----
+<br><br>
 
-## 📋 Overview
+<!-- SEPARADOR: RESUMEN -->
+<div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=rect&color=ffffff&text=RESUMEN&fontColor=000000&height=40&fontSize=22" width="100%"/>
+</div>
+<br>
 
-This repository hosts a comprehensive library of custom SIEM detection rules designed to identify advanced threats across the kill chain. Each rule is meticulously crafted, tested, and mapped to the **MITRE ATT&CK** framework.
+<div align="justify">
+  Este repositorio aloja una exhaustiva biblioteca de reglas de detección SIEM personalizadas, diseñadas para identificar amenazas avanzadas a lo largo de la cadena de ataque (<i>kill chain</i>). Cada regla está meticulosamente elaborada, probada y mapeada al framework <b>MITRE ATT&CK</b>.
+</div>
+<br>
 
-### 🎯 Key Features
+### <img src="https://img.icons8.com/ios/256/FFFFFF/star.png" width="22" valign="middle"> Características Principales
 
-- **🔄 Multi-Platform Support**: Native rules for **Splunk** (SPL), **Elastic** (EQL/KQL), and **QRadar** (AQL), derived from a universal **Sigma** baseline.
-- **🗺️ MITRE ATT&CK Integration**: Full mapping to Tactics, Techniques, and Procedures (TTPs).
-- **🧪 Validated Logic**: Rules tested against real-world attack simulations (Atomic Red Team).
-- **📉 Low False Positives**: Tuned to minimize noise in production environments.
-- **📝 Detailed Documentation**: Each rule includes context, blind spots, and response guidance.
+* <img src="https://img.icons8.com/ios/256/FFFFFF/synchronize.png" width="18" valign="middle"> **Soporte Multiplataforma**: Reglas nativas para **Splunk** (SPL), **Elastic** (EQL/KQL) y **QRadar** (AQL), derivadas de una base universal en **Sigma**.
+* <img src="https://img.icons8.com/ios/256/FFFFFF/grid.png" width="18" valign="middle"> **Integración con MITRE ATT&CK**: Mapeo completo a Tácticas, Técnicas y Procedimientos (TTPs).
+* <img src="https://img.icons8.com/ios/256/FFFFFF/test-tube.png" width="18" valign="middle"> **Lógica Validada**: Reglas probadas contra simulaciones de ataques del mundo real (Atomic Red Team).
+* <img src="https://img.icons8.com/ios/256/FFFFFF/ok.png" width="18" valign="middle"> **Bajos Falsos Positivos**: Ajustadas para minimizar el ruido en entornos de producción reales.
+* <img src="https://img.icons8.com/ios/256/FFFFFF/document.png" width="18" valign="middle"> **Documentación Detallada**: Cada regla incluye contexto, puntos ciegos y guías de respuesta.
 
----
+<br><br>
 
-## 🔍 Detection Rules
+<!-- SEPARADOR: REGLAS DE DETECCION -->
+<a name="reglas-de-detección"></a>
+<div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=rect&color=ffffff&text=REGLAS%20DE%20DETECCIÓN&fontColor=000000&height=40&fontSize=22" width="100%"/>
+</div>
+<br>
 
-Rules are organized by **MITRE ATT&CK Tactics**:
+Las reglas están organizadas por **Tácticas de MITRE ATT&CK**:
 
-| Tactic | Description | Count |
+| Táctica | Descripción | Cantidad |
 | :--- | :--- | :---: |
-| **[Initial Access](rules/sigma/initial_access)** | Phishing, Valid Accounts, Exploit Public-Facing Application | 3 |
-| **[Execution](rules/sigma/execution)** | PowerShell, LOLBins, Scheduled Tasks | 5 |
-| **[Persistence](rules/sigma/persistence)** | Registry Run Keys, Services, Account Manipulation | 4 |
-| **[Privilege Escalation](rules/sigma/privilege_escalation)** | Token Manipulation, UAC Bypass | 3 |
-| **[Defense Evasion](rules/sigma/defense_evasion)** | Impair Defenses, Indicator Removal, Masquerading | 4 |
-| **[Lateral Movement](rules/sigma/lateral_movement)** | RDP, SMB/Windows Admin Shares, Pass the Hash | 3 |
-| **[Command & Control](rules/sigma/command_and_control)** | Web Protocols, DNS Tunneling, Non-Standard Ports | 3 |
-| **[Exfiltration](rules/sigma/exfiltration)** | Exfiltration Over C2, Data Staged | 2 |
+| **[Acceso Inicial](rules/sigma/initial_access)** | Phishing, Cuentas Válidas, Explotación de Aplicaciones Públicas | 3 |
+| **[Ejecución](rules/sigma/execution)** | PowerShell, LOLBins, Tareas Programadas | 5 |
+| **[Persistencia](rules/sigma/persistence)** | Claves de Registro (Run), Servicios, Manipulación de Cuentas | 4 |
+| **[Escalada de Privilegios](rules/sigma/privilege_escalation)** | Manipulación de Tokens, Evasión de UAC | 3 |
+| **[Evasión de Defensas](rules/sigma/defense_evasion)** | Deterioro de Defensas, Eliminación de Indicadores, Enmascaramiento | 4 |
+| **[Movimiento Lateral](rules/sigma/lateral_movement)** | RDP, Recursos Compartidos SMB/Admin, Pass the Hash | 3 |
+| **[Comando y Control](rules/sigma/command_and_control)** | Protocolos Web, Tunelización DNS, Puertos No Estándar | 3 |
+| **[Exfiltración](rules/sigma/exfiltration)** | Exfiltración sobre C2, Datos Preparados | 2 |
 
 > [!TIP]
-> Use the **[Rule Navigator](docs/rules/README.md)** to search rules by data source or technique ID.
+> Utiliza el **[Navegador de Reglas](docs/rules/README.md)** para buscar reglas concretas por origen de datos o ID de técnica.
 
----
+<br><br>
 
-## 🛠️ Implementation
+<!-- SEPARADOR: IMPLEMENTACION -->
+<a name="implementación"></a>
+<div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=rect&color=ffffff&text=IMPLEMENTACIÓN&fontColor=000000&height=40&fontSize=22" width="100%"/>
+</div>
+<br>
 
-### Prerequisites
+### <img src="https://img.icons8.com/ios/256/FFFFFF/checklist.png" width="22" valign="middle"> Requisitos Previos
 
-- **Python 3.8+** (for validation tools)
-- **Sigma CLI** (optional, for custom conversions)
+* **Python 3.8+** (para las herramientas de validación)
+* **Sigma CLI** (opcional, para conversiones personalizadas)
 
-### Quick Start
+### <img src="https://img.icons8.com/ios/256/FFFFFF/rocket.png" width="22" valign="middle"> Inicio Rápido
 
-1. **Clone the repository**
+1. **Clonar el repositorio**
    ```bash
    git clone https://github.com/Ph0e-Nyx/siem-detection-rules.git
    cd siem-detection-rules
-   ```
-
-2. **Select your platform**
-   Navigate to the directory matching your SIEM:
-   - `rules/splunk/` for SPL queries
-   - `rules/elastic/` for Elastic queries
-   - `rules/qradar/` for AQL queries
-
-3. **Deploy a rule**
-   Copy the query string and import it into your SIEM's detection engine.
-
-   *Example (Splunk):*
-   ```splunk
-   index=windows source="WinEventLog:Security" EventCode=4688 ProcessName="*\\powershell.exe" CommandLine="*-enc*"
-   | stats count by Computer, User, CommandLine
-   ```
-
----
-
-## 📜 License
-
-Distributed under the MIT License. See `LICENSE` for more information.
-
----
-
-<div align="center">
-
-**Developed with 💙 by [Ph0e-Nyx](https://ph0e-nyx.github.io)**
-
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ph0enyx/)
-[![Twitter](https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://x.com/nieeerr_)
-
-</div>
